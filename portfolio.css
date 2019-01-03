@@ -93,6 +93,18 @@ a:hover {
     flex-wrap :wrap;
     
   }
+
+  .row5{
+    height: 100%;
+  }
+
+  .portphoto{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10rem;
+   
+  }
   
   
   .port{
@@ -102,7 +114,7 @@ a:hover {
     justify-content: center;
     color: #262626;
     font-weight: 900;
-    font-size: 80px;
+    font-size: 40px;
     padding: 5em;
     position: relative;
 
@@ -116,7 +128,7 @@ a:hover {
     padding: 0;
     margin: 0;
     position: absolute;
-    top: 40rem;
+    top: 51rem;
     
     }
   

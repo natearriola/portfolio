@@ -103,9 +103,28 @@ a:hover {
     justify-content: center;
     position: relative;
     top: 10rem;
+    opacity: 1;
    
   }
+
+  a > .odie{
+    opacity: 1;
+  }
+
+  a > .odie:hover{
   
+    opacity: .7;
+  }
+  
+
+  a > .color{
+    opacity: 1;
+  }
+
+  a > .color:hover{
+  
+    opacity: .7;
+  }
   
   .port{
       font-family: 'Anton', 'Sans serif';

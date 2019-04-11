@@ -168,8 +168,6 @@ body {
 TITLE SCSS
 ****/
 .title{
-  display: flex;
-  justify-content: center;
   font-family: big john;
 text-align: center;
 font-size: 48px;
@@ -433,55 +431,112 @@ footer{
 
   }
 }
-
-@media screen and(min-device-width: 1440px) and (max-device-width: 1600px) {
+@media screen and (min-device-width: 1600px) and (max-device-width: 2560px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
-    padding: 1.5rem;
+    height: 100vh;
     overflow-x: hidden;
-
     .header-flex {
-      display: flex;
+      padding-right: 9rem;
+      padding-left: 5rem;
     }
-
     .menu {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      padding: 0;
-      margin-right: 3rem;
-    }
 
-    .menu li {
-      font-size: 16px;
+      width: 100%;
+      justify-content: center;
+      margin-right: 4rem;
     }
     .logo {
+      display: flex;
+      justify-content: center;
       padding: 0;
-      margin: auto 0;
       width: 10%;
     }
+
     .logo img {
-      padding: 0;
-    }
-    .ham {
-      width: 35px;
+      padding-left: 2rem;
     }
 
-    .project > img{
-      max-width: 100%;
+    .left{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      
+      
     }
+    .title{
+      font-size: 100px;
+      line-height: 8rem;
+      width: 100%;
+    }
+
     .grid{
       display: grid; 
       grid-template-columns: .5fr 1fr;
       grid-template-rows: 100vh;
     }
-    .title{
-      font-size: 100px;
-      line-height: 8rem;
-    }
 
-    }
+  .right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  .listings{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows:  repeat(2, 1fr);
+   
+    grid-gap: 5rem;
+    margin-right: 1rem;
+  
+  }
+
+  .project{
+    padding-top: 0;
+ 
+  }
+
+  .p3{
+    padding-bottom: 0;
+    
+  }
+
+ .project > .content{
+    padding: 3rem;
+    padding-left: 0;
+    padding-bottom: 1rem;
+   width: 100%;
+    margin-left: 3rem;
+    
+    position: relative;
+    right: 3rem;
+    
+   
+  }
+
+  .content > a{
+    padding-right: 1rem;
+  }
+
+
+
+  .pheader > img{
+    max-width: 40%;
+  }
+
+footer{
+  
+  display: none;
+}
+
+    
+
+
+
+
+  }
+}
 
 
 

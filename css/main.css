@@ -173,12 +173,6 @@ body .nav-container .closeBtn {
 }
 
 body .title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   font-family: big john;
   text-align: center;
   font-size: 48px;
@@ -412,46 +406,53 @@ body footer > a {
   }
 }
 
-@media screen and (min-device-width: 1440px) and (max-device-width: 1600px) {
+@media screen and (min-device-width: 1600px) and (max-device-width: 2560px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
-    padding: 1.5rem;
+    height: 100vh;
     overflow-x: hidden;
   }
   body .header-flex {
+    padding-right: 9rem;
+    padding-left: 5rem;
+  }
+  body .menu {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 4rem;
   }
-  body .menu {
+  body .logo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 100%;
     padding: 0;
-    margin-right: 3rem;
-  }
-  body .menu li {
-    font-size: 16px;
-  }
-  body .logo {
-    padding: 0;
-    margin: auto 0;
     width: 10%;
   }
   body .logo img {
-    padding: 0;
+    padding-left: 2rem;
   }
-  body .ham {
-    width: 35px;
+  body .left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  body .project > img {
-    max-width: 100%;
+  body .title {
+    font-size: 100px;
+    line-height: 8rem;
+    width: 100%;
   }
   body .grid {
     display: -ms-grid;
@@ -461,9 +462,50 @@ body footer > a {
     -ms-grid-rows: 100vh;
         grid-template-rows: 100vh;
   }
-  body .title {
-    font-size: 100px;
-    line-height: 8rem;
+  body .right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body .listings {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+    grid-gap: 5rem;
+    margin-right: 1rem;
+  }
+  body .project {
+    padding-top: 0;
+  }
+  body .p3 {
+    padding-bottom: 0;
+  }
+  body .project > .content {
+    padding: 3rem;
+    padding-left: 0;
+    padding-bottom: 1rem;
+    width: 100%;
+    margin-left: 3rem;
+    position: relative;
+    right: 3rem;
+  }
+  body .content > a {
+    padding-right: 1rem;
+  }
+  body .pheader > img {
+    max-width: 40%;
+  }
+  body footer {
+    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,6 +1,7 @@
 $colors: (
   grey: #c9c9c9,
   black: #000000,
+  offblack: #1e2125,
   blue: #0a7198
 );
 
@@ -169,12 +170,12 @@ TITLE SCSS
 .title{
   display: flex;
   justify-content: center;
-  font-family: slim joe;
+  font-family: big john;
 text-align: center;
 font-size: 48px;
 letter-spacing: .5rem;
 line-height: 3.5rem;
-
+color: map-get($colors, blue);
 }
 
 /***** 
@@ -183,11 +184,12 @@ PROJECT LITS
 
 
 .project{
-  padding: 2rem;
+  
+  padding-top: 1rem;
 }
 
 .p3{
-  border: 2px solid red;
+  
   padding-bottom: 5rem;
 }
 
@@ -206,10 +208,11 @@ PROJECT LITS
   position: absolute;
   bottom: 60px;
   left: 16px;
-  font-family: big john;
-  color: #0a7198;
+  font-family: slim joe;
+  color: map-get($colors , offblack);
   text-align: left;
   font-size: 36px;
+ 
  
 }
 
@@ -273,16 +276,17 @@ footer > a{
 
 
 
-
-
-
   
 
 
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1023px) 
+and (-webkit-min-device-pixel-ratio: 1) {
   body {
     overflow-x: hidden;
+    
     .menu {
       display: flex;
       justify-content: center;
@@ -303,9 +307,22 @@ footer > a{
     }
 
     .header-flex {
-      width: 100%;
-      margin: auto 0;
+      
+      margin-right: 2rem;
+      margin-left: 2rem;
       padding: 0;
+      
+    }
+    
+    .project{
+     padding-top: 3rem;
+    }
+
+    .project > .content{
+      padding-top: 2rem;
+      margin-right: 2.5rem;
+      margin-left: 3rem;
+      
     }
 
   
@@ -338,12 +355,88 @@ footer > a{
       padding-left: 2rem;
     }
 
+    .left{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+    .title{
+      font-size: 70px;
+      line-height: 5rem;
+    }
+
+    .grid{
+      display: grid; 
+      grid-template-columns: .5fr 1fr;
+      grid-template-rows: 100vh;
+    }
+
+  .right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .listings{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows:  repeat(2, 1fr);
+   
+    grid-gap: 5rem;
+    margin-right: 1rem;
+  
+  }
+
+  .project{
+    padding-top: 0;
+ 
+  }
+
+  .p3{
+    padding-bottom: 0;
+    
+  }
+
+ .project > .content{
+    padding: 3rem;
+    padding-left: 0;
+    padding-bottom: 1rem;
+   width: 100%;
+    margin-left: 3rem;
+    
+    position: relative;
+    right: 3rem;
+    
+   
+  }
+
+  .content > a{
+    padding-right: 1rem;
+  }
+
+
+
+  .pheader > img{
+    max-width: 40%;
+  }
+
+footer{
+  
+  display: none;
+}
+
+    
+
+
+
 
   }
 }
 
 @media screen and(min-device-width: 1440px) and (max-device-width: 1600px) {
   body {
+    padding: 1.5rem;
     overflow-x: hidden;
 
     .header-flex {
@@ -372,6 +465,19 @@ footer > a{
     }
     .ham {
       width: 35px;
+    }
+
+    .project > img{
+      max-width: 100%;
+    }
+    .grid{
+      display: grid; 
+      grid-template-columns: .5fr 1fr;
+      grid-template-rows: 100vh;
+    }
+    .title{
+      font-size: 100px;
+      line-height: 8rem;
     }
 
     }

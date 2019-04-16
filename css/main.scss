@@ -38,9 +38,7 @@ body {
   .header-flex {
     display: flex;
     align-items: center;
-
     height: 70px;
-
     margin: auto 0;
     padding-right: 1rem;
   }
@@ -138,7 +136,7 @@ body {
   }
 
   .nav li a:hover {
-    color: #c9c9c9;
+    color: map-get($colors, offblack);
   }
 
   .menu li a {
@@ -160,8 +158,15 @@ body {
     width: 5%;
   }
   /*** 
-TITLE SCSS
+TITLE SCSS AND ARROW DOWN ICON 
 ****/
+
+  .left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
   .title {
     font-family: big john;
     text-align: center;
@@ -313,40 +318,29 @@ PROJECT LITS
       padding-left: 2rem;
     }
 
-    .left {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-    }
     .title {
-      font-size: 70px;
-      line-height: 5rem;
+      font-size: 100px;
+      line-height: 140%;
     }
 
-    .grid {
+    .a-down {
+      position: relative;
+      bottom: 3.5rem;
+    }
+
+    .list {
       display: grid;
-      grid-template-columns: 0.5fr 1fr;
-      grid-template-rows: 100vh;
-    }
-
-    .right {
-      display: flex;
+      grid-template-columns: repeat(auto-fill, 500px);
       justify-content: center;
-      align-items: center;
-    }
-
-    .listings {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-
-      grid-gap: 5rem;
-      margin-right: 1rem;
+      grid-gap: 2rem;
     }
 
     .project {
       padding-top: 0;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
     }
 
     .p3 {
@@ -382,61 +376,64 @@ PROJECT LITS
     height: 100vh;
     overflow-x: hidden;
     .header-flex {
-      padding-right: 9rem;
-      padding-left: 5rem;
+      padding: 3rem;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
     }
     .menu {
-      display: flex;
+      display: inline;
 
       width: 100%;
       justify-content: center;
-      margin-right: 4rem;
+      margin-right: 20rem;
+    }
+    .menu li {
+      display: inline;
+      margin-right: 1rem;
+    }
+    .menu li a {
+      font-size: 24px;
     }
     .logo {
-      display: flex;
-      justify-content: center;
       padding: 0;
-      width: 10%;
     }
 
     .logo img {
       padding-left: 2rem;
+      width: 80px;
+      height: 70px;
     }
 
-    .left {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
     .title {
-      font-size: 100px;
-      line-height: 8rem;
-      width: 100%;
+      font-size: 150px;
+      line-height: 140%;
     }
 
-    .grid {
+    .a-down {
+      position: relative;
+      bottom: 6rem;
+    }
+
+    .list {
       display: grid;
-      grid-template-columns: 0.5fr 1fr;
-      grid-template-rows: 100vh;
-    }
-
-    .right {
-      display: flex;
+      grid-template-columns: repeat(auto-fill, 1000px);
       justify-content: center;
       align-items: center;
-    }
+      grid-gap: 2rem;
 
-    .listings {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-
-      grid-gap: 5rem;
-      margin-right: 1rem;
+      h1 {
+        font-size: 48px;
+      }
     }
 
     .project {
       padding-top: 0;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
     }
 
     .p3 {

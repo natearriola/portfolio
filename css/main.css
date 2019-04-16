@@ -309,6 +309,10 @@ body footer > a {
     margin-left: 2rem;
     padding: 0;
   }
+  body .title {
+    font-size: 64px;
+    line-height: 140%;
+  }
   body .project {
     padding-top: 3rem;
   }
@@ -319,7 +323,7 @@ body footer > a {
   }
 }
 
-@media screen and (min-device-width: 1024px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-device-width: 1024px) and (max-device-width: 1400px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
     height: 100vh;
     overflow-x: hidden;
@@ -336,7 +340,7 @@ body footer > a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-right: 4rem;
+    margin-right: 6rem;
   }
   body .logo {
     display: -webkit-box;
@@ -362,27 +366,17 @@ body footer > a {
   body .list {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (500px)[auto-fill];
-        grid-template-columns: repeat(auto-fill, 500px);
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    grid-gap: 2rem;
-  }
-  body .project {
-    padding-top: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -ms-grid-columns: (minmax(400px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     -ms-flex-line-pack: center;
         align-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    grid-gap: 2rem;
+  }
+  body .project {
+    padding-top: 0;
   }
   body .p3 {
     padding-bottom: 0;
@@ -399,15 +393,87 @@ body footer > a {
   body .content > a {
     padding-right: 1rem;
   }
-  body .pheader > img {
-    max-width: 40%;
+  body footer {
+    display: none;
+  }
+}
+
+@media screen and (min-device-width: 1400px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  body {
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  body .header-flex {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  body .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 6rem;
+  }
+  body .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0;
+    width: 10%;
+  }
+  body .logo img {
+    padding-left: 2rem;
+  }
+  body .title {
+    font-size: 100px;
+    line-height: 140%;
+  }
+  body .a-down {
+    position: relative;
+    bottom: 3.5rem;
+  }
+  body .list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(500px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    grid-gap: 2rem;
+  }
+  body .project {
+    padding-top: 0;
+  }
+  body .p3 {
+    padding-bottom: 0;
+  }
+  body .project > .content {
+    padding: 3rem;
+    padding-left: 0;
+    padding-bottom: 1rem;
+    width: 100%;
+    margin-left: 3rem;
+    position: relative;
+    right: 3rem;
+  }
+  body .content > a {
+    padding-right: 1rem;
   }
   body footer {
     display: none;
   }
 }
 
-@media screen and (min-device-width: 1600px) and (max-device-width: 2560px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-device-width: 1600px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
     height: 100vh;
     overflow-x: hidden;
@@ -430,14 +496,14 @@ body footer > a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-right: 20rem;
+    margin-right: 17rem;
   }
   body .menu li {
     display: inline;
     margin-right: 1rem;
   }
   body .menu li a {
-    font-size: 24px;
+    font-size: 16px;
   }
   body .logo {
     padding: 0;
@@ -458,8 +524,8 @@ body footer > a {
   body .list {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1000px)[auto-fill];
-        grid-template-columns: repeat(auto-fill, 1000px);
+    -ms-grid-columns: (minmax(500px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -467,24 +533,13 @@ body footer > a {
         -ms-flex-align: center;
             align-items: center;
     grid-gap: 2rem;
+    padding: 2rem;
   }
   body .list h1 {
     font-size: 48px;
   }
   body .project {
     padding-top: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
   }
   body .p3 {
     padding-bottom: 0;
@@ -502,7 +557,98 @@ body footer > a {
     padding-right: 1rem;
   }
   body .pheader > img {
-    max-width: 40%;
+    max-width: 100%;
+  }
+  body footer {
+    display: none;
+  }
+}
+
+@media screen and (min-device-width: 2000px) and (max-device-width: 2560px) and (-webkit-min-device-pixel-ratio: 1) {
+  body {
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  body .header-flex {
+    padding: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body .menu {
+    display: inline;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 17rem;
+  }
+  body .menu li {
+    display: inline;
+    margin-right: 1rem;
+  }
+  body .menu li a {
+    font-size: 16px;
+  }
+  body .logo {
+    padding: 0;
+  }
+  body .logo img {
+    padding-left: 2rem;
+    width: 80px;
+    height: 70px;
+  }
+  body .title {
+    font-size: 150px;
+    line-height: 140%;
+  }
+  body .a-down {
+    position: relative;
+    bottom: 6rem;
+  }
+  body .list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(650px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    grid-gap: 2rem;
+    padding: 2rem;
+  }
+  body .list h1 {
+    font-size: 48px;
+  }
+  body .project {
+    padding-top: 0;
+  }
+  body .p3 {
+    padding-bottom: 0;
+  }
+  body .project > .content {
+    padding: 3rem;
+    padding-left: 0;
+    padding-bottom: 1rem;
+    width: 100%;
+    margin-left: 3rem;
+    position: relative;
+    right: 3rem;
+  }
+  body .content > a {
+    padding-right: 1rem;
+  }
+  body .pheader > img {
+    max-width: 100%;
   }
   body footer {
     display: none;

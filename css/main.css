@@ -24,6 +24,9 @@ html {
 body {
   margin: auto 0;
   padding: 0;
+  /*****************
+  MENU LINK Animations
+  */
   /*** 
 TITLE SCSS AND ARROW DOWN ICON 
 ****/
@@ -39,16 +42,15 @@ body .header-flex {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 70px;
+  height: 0;
+  padding: 2rem;
   margin: auto 0;
-  padding-right: 1rem;
 }
 
 body .logo {
-  display: inline-block;
-  height: 50px;
-  padding: 30px;
-  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 body .logo img {
@@ -172,6 +174,22 @@ body .nav-container .closeBtn {
   width: 5%;
 }
 
+body .link-1::after, body .link-2::after, body .link-3::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #53a7ea;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+
+body .link-1:hover::after, body .link-2:hover::after, body .link-3:hover::after {
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+  width: 100%;
+}
+
 body .left {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -198,7 +216,7 @@ body .title {
 }
 
 body .project {
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 body .p3 {
@@ -266,18 +284,35 @@ body .github {
 }
 
 body footer {
-  padding: 5rem;
-  text-align: center;
-  position: relative;
-  bottom: 3%;
+  height: 0;
+  padding: 2rem;
+  font-family: "raleway";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body footer .pgnum {
   font-family: big john;
+  font-size: 16px;
+}
+
+body footer .pgnum > span {
+  color: #0a7198;
 }
 
 body footer > a {
   color: black;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+body footer > a:hover {
+  color: #53a7ea;
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
     overflow-x: hidden;
   }
@@ -291,46 +326,34 @@ body footer > a {
     width: 100%;
     margin-right: 3rem;
   }
-  body .logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding: 0;
-    width: 10%;
+  body .header-flex {
+    height: 0;
+    padding: 3rem;
   }
   body .logo img {
-    padding-left: 1.5rem;
+    height: 50px;
+    width: 60px;
   }
-  body .header-flex {
-    margin-right: 2rem;
-    margin-left: 2rem;
-    padding: 0;
-  }
-  body .title {
-    font-size: 64px;
-    line-height: 140%;
+  body .content > img {
+    max-width: 70%;
   }
   body .project {
     padding-top: 3rem;
   }
-  body .project > .content {
-    padding-top: 2rem;
-    margin-right: 2.5rem;
-    margin-left: 3rem;
+  body .projName {
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
   }
 }
 
-@media screen and (min-device-width: 1024px) and (max-device-width: 1400px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-device-width: 1024px) and (max-device-width: 1439px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
-    height: 100vh;
     overflow-x: hidden;
   }
   body .header-flex {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    height: 0;
+    padding: 3rem;
   }
   body .menu {
     display: -webkit-box;
@@ -340,28 +363,26 @@ body footer > a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-right: 6rem;
-  }
-  body .logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding: 0;
-    width: 10%;
+    margin-right: 4rem;
   }
   body .logo img {
-    padding-left: 2rem;
+    height: 50px;
+    width: 60px;
   }
   body .title {
     font-size: 100px;
     line-height: 140%;
   }
-  body .a-down {
-    position: relative;
-    bottom: 3.5rem;
+  body .grid > img {
+    max-width: 70%;
+  }
+  body .project {
+    padding-top: 3rem;
+  }
+  body .projName {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
   }
   body .list {
     display: -ms-grid;
@@ -374,38 +395,185 @@ body footer > a {
     -ms-flex-line-pack: center;
         align-content: center;
     grid-gap: 2rem;
-  }
-  body .project {
-    padding-top: 0;
-  }
-  body .p3 {
-    padding-bottom: 0;
-  }
-  body .project > .content {
-    padding: 3rem;
-    padding-left: 0;
-    padding-bottom: 1rem;
-    width: 100%;
-    margin-left: 3rem;
-    position: relative;
-    right: 3rem;
-  }
-  body .content > a {
-    padding-right: 1rem;
+    padding: 2rem;
   }
   body footer {
+    height: 0;
+  }
+}
+
+@media screen and (min-device-width: 1440px) and (max-device-width: 1599px) {
+  body {
+    overflow-x: hidden;
+  }
+  body .header-flex {
+    height: 0;
+    padding: 3rem;
+  }
+  body .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+  body .menu li {
+    font-size: 16px;
+  }
+  body .logo img {
+    padding: 0;
+    width: 60px;
+    height: 50px;
+  }
+  body .ham {
+    width: 35px;
+  }
+  body .title {
+    font-size: 100px;
+    line-height: 140%;
+  }
+  body .grid > img {
+    max-width: 70%;
+  }
+  body .project {
+    padding-top: 3rem;
+  }
+  body .projName {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+  }
+  body .list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(400px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    grid-gap: 2rem;
+    padding: 2rem;
+  }
+  body .a-down {
+    position: relative;
+    bottom: 3rem;
+  }
+  body footer {
+    height: 0vh;
+    font-size: 24px;
+    padding-bottom: 3rem;
+    padding-right: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  body footer .pgnum {
+    font-size: 24px;
+  }
+  body footer .top {
     display: none;
   }
 }
 
-@media screen and (min-device-width: 1400px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-device-width: 1600px) and (max-device-width: 1919px) {
   body {
-    height: 100vh;
     overflow-x: hidden;
   }
   body .header-flex {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    height: 0;
+    padding: 3rem;
+  }
+  body .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  body .menu li {
+    font-size: 16px;
+  }
+  body .logo img {
+    padding: 0;
+  }
+  body .ham {
+    width: 35px;
+  }
+  body .title {
+    font-size: 100px;
+    line-height: 140%;
+  }
+  body .grid > img {
+    max-width: 70%;
+  }
+  body .project {
+    padding-top: 3rem;
+  }
+  body .projName {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+  }
+  body .list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(400px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    grid-gap: 2rem;
+    padding: 2rem;
+  }
+  body .a-down {
+    position: relative;
+    bottom: 3rem;
+  }
+  body footer {
+    height: 0vh;
+    font-size: 24px;
+    padding-bottom: 3rem;
+    padding-right: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  body footer .pgnum {
+    font-size: 24px;
+  }
+  body footer .top {
+    display: none;
+  }
+}
+
+@media screen and (min-device-width: 1920px) and (max-device-width: 2500px) {
+  body {
+    overflow-x: hidden;
+  }
+  body .header-flex {
+    height: 0;
+    padding: 3rem;
   }
   body .menu {
     display: -webkit-box;
@@ -415,34 +583,121 @@ body footer > a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-right: 6rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 5rem;
   }
-  body .logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding: 0;
-    width: 10%;
+  body .menu li {
+    font-size: 16px;
   }
   body .logo img {
-    padding-left: 2rem;
+    width: 60px;
+    height: 50px;
+  }
+  body .ham {
+    width: 35px;
   }
   body .title {
     font-size: 100px;
     line-height: 140%;
   }
-  body .a-down {
-    position: relative;
-    bottom: 3.5rem;
+  body .grid > img {
+    max-width: 70%;
+  }
+  body .project {
+    padding-top: 3rem;
+  }
+  body .projName {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
   }
   body .list {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (minmax(500px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    -ms-grid-columns: (minmax(600px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    grid-gap: 2rem;
+    padding: 2rem;
+  }
+  body .a-down {
+    position: relative;
+    bottom: 3rem;
+  }
+  body footer {
+    height: 0vh;
+    font-size: 24px;
+    padding-bottom: 3rem;
+    padding-right: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  body footer .pgnum {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-device-width: 2560px) and (max-device-width: 3840px) {
+  body {
+    overflow-x: hidden;
+  }
+  body .header-flex {
+    padding: 4rem;
+    padding-bottom: 2rem;
+    height: 0;
+  }
+  body .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body .menu li {
+    font-size: 24px;
+  }
+  body .logo img {
+    width: 60px;
+    height: 50px;
+  }
+  body .ham {
+    width: 35px;
+  }
+  body .title {
+    font-size: 150px;
+    line-height: 140%;
+  }
+  body .grid > img {
+    max-width: 70%;
+  }
+  body .project {
+    padding-top: 3rem;
+  }
+  body .projName {
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
+  }
+  body .list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(1000px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -450,208 +705,24 @@ body footer > a {
         align-content: center;
     grid-gap: 2rem;
   }
-  body .project {
-    padding-top: 0;
-  }
-  body .p3 {
-    padding-bottom: 0;
-  }
-  body .project > .content {
-    padding: 3rem;
-    padding-left: 0;
-    padding-bottom: 1rem;
-    width: 100%;
-    margin-left: 3rem;
+  body .a-down {
     position: relative;
-    right: 3rem;
-  }
-  body .content > a {
-    padding-right: 1rem;
+    bottom: 3rem;
   }
   body footer {
-    display: none;
-  }
-}
-
-@media screen and (min-device-width: 1600px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 1) {
-  body {
-    height: 100vh;
-    overflow-x: hidden;
-  }
-  body .header-flex {
-    padding: 3rem;
+    height: 0vh;
+    font-size: 24px;
+    padding-bottom: 3rem;
+    padding-right: 5rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
-  body .menu {
-    display: inline;
-    width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-right: 17rem;
-  }
-  body .menu li {
-    display: inline;
-    margin-right: 1rem;
-  }
-  body .menu li a {
-    font-size: 16px;
-  }
-  body .logo {
-    padding: 0;
-  }
-  body .logo img {
-    padding-left: 2rem;
-    width: 80px;
-    height: 70px;
-  }
-  body .title {
-    font-size: 150px;
-    line-height: 140%;
-  }
-  body .a-down {
-    position: relative;
-    bottom: 6rem;
-  }
-  body .list {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(500px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    grid-gap: 2rem;
-    padding: 2rem;
-  }
-  body .list h1 {
-    font-size: 48px;
-  }
-  body .project {
-    padding-top: 0;
-  }
-  body .p3 {
-    padding-bottom: 0;
-  }
-  body .project > .content {
-    padding: 3rem;
-    padding-left: 0;
-    padding-bottom: 1rem;
-    width: 100%;
-    margin-left: 3rem;
-    position: relative;
-    right: 3rem;
-  }
-  body .content > a {
-    padding-right: 1rem;
-  }
-  body .pheader > img {
-    max-width: 100%;
-  }
-  body footer {
-    display: none;
-  }
-}
-
-@media screen and (min-device-width: 2000px) and (max-device-width: 2560px) and (-webkit-min-device-pixel-ratio: 1) {
-  body {
-    height: 100vh;
-    overflow-x: hidden;
-  }
-  body .header-flex {
-    padding: 3rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  body .menu {
-    display: inline;
-    width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-right: 17rem;
-  }
-  body .menu li {
-    display: inline;
-    margin-right: 1rem;
-  }
-  body .menu li a {
-    font-size: 16px;
-  }
-  body .logo {
-    padding: 0;
-  }
-  body .logo img {
-    padding-left: 2rem;
-    width: 80px;
-    height: 70px;
-  }
-  body .title {
-    font-size: 150px;
-    line-height: 140%;
-  }
-  body .a-down {
-    position: relative;
-    bottom: 6rem;
-  }
-  body .list {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(650px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    grid-gap: 2rem;
-    padding: 2rem;
-  }
-  body .list h1 {
-    font-size: 48px;
-  }
-  body .project {
-    padding-top: 0;
-  }
-  body .p3 {
-    padding-bottom: 0;
-  }
-  body .project > .content {
-    padding: 3rem;
-    padding-left: 0;
-    padding-bottom: 1rem;
-    width: 100%;
-    margin-left: 3rem;
-    position: relative;
-    right: 3rem;
-  }
-  body .content > a {
-    padding-right: 1rem;
-  }
-  body .pheader > img {
-    max-width: 100%;
-  }
-  body footer {
-    display: none;
+  body footer .pgnum {
+    font-size: 24px;
   }
 }
 /*# sourceMappingURL=main.css.map */

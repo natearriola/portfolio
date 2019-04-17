@@ -2,6 +2,7 @@ $colors: (
   grey: #c9c9c9,
   black: #000000,
   offblack: #1e2125,
+  secondaryblue: rgb(83, 167, 234),
   blue: #0a7198
 );
 
@@ -38,16 +39,13 @@ body {
   .header-flex {
     display: flex;
     align-items: center;
-    height: 70px;
+   height:0;
+   padding: 2rem;
     margin: auto 0;
-    padding-right: 1rem;
   }
 
   .logo {
-    display: inline-block;
-    height: 50px;
-    padding: 30px;
-    width: 100%;
+    flex-grow: 1;
   }
 
   .logo img {
@@ -157,6 +155,28 @@ body {
 
     width: 5%;
   }
+/*****************
+  MENU LINK Animations
+  */
+
+  
+  .link-1::after, .link-2::after,.link-3::after {
+    content: '';
+    display: block;
+    width: 0;
+    height:2px;
+    background: map-get($colors, secondaryblue);
+    transition: width 0.3s;
+  }
+  
+  .link-1:hover::after, .link-2:hover::after, .link-3:hover::after {
+    transition: width 0.3s;
+    width:100%;
+  }
+  
+ 
+
+
   /*** 
 TITLE SCSS AND ARROW DOWN ICON 
 ****/
@@ -181,7 +201,7 @@ PROJECT LITS
 ****/
 
   .project {
-    padding-top: 1rem;
+    padding-top: 2rem;
   }
 
   .p3 {
@@ -214,7 +234,7 @@ PROJECT LITS
     padding: 1rem 2rem 1rem 2rem;
     border-radius: 5%;
     transition: all 0.3s ease;
-    background-color: rgb(83, 167, 234);
+    background-color: map-get($colors, secondaryblue);
     box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.1);
   }
 
@@ -240,87 +260,94 @@ PROJECT LITS
   }
 
   footer {
-    padding: 5rem;
-    text-align: center;
-    position: relative;
-    bottom: 3%;
-    font-family: big john;
+    height: 0;
+    padding: 2rem;
+    font-family: "raleway";
+    display: flex;
+    .pgnum{
+      font-family: big john;
+      font-size: 16px;
+    }
+    .pgnum > span {
+      color: map-get($colors,blue);
+    }
+    
   }
+
   footer > a {
     color: black;
+    flex-grow: 1;
   }
+
+  footer > a:hover{
+    color: map-get($colors, secondaryblue);
+  }
+
+
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
     overflow-x: hidden;
-
     .menu {
       display: flex;
       justify-content: center;
       width: 100%;
-
       margin-right: 3rem;
     }
 
-    .logo {
-      display: flex;
-      justify-content: center;
-      padding: 0;
-      width: 10%;
+    .header-flex{
+      
+      height: 0;
+      padding: 3rem;
     }
 
     .logo img {
-      padding-left: 1.5rem;
+      height: 50px;
+      width: 60px;
     }
 
-    .header-flex {
-      margin-right: 2rem;
-      margin-left: 2rem;
-      padding: 0;
+    
+
+    .content > img {
+      max-width: 70%;
     }
 
-    .title{
-      font-size: 64px;
-      line-height: 140%;
-    }
-
-    .project {
+    .project{
       padding-top: 3rem;
     }
 
-    .project > .content {
-      padding-top: 2rem;
-      margin-right: 2.5rem;
-      margin-left: 3rem;
+    .projName {
+      position: absolute;
+      bottom: 5%;
+      left: 15%;
     }
+   
   }
 }
 
-@media screen and (min-device-width: 1024px) and (max-device-width: 1400px) and (-webkit-min-device-pixel-ratio: 1) {
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1439px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
-    height: 100vh;
+   
     overflow-x: hidden;
     .header-flex {
-      padding-right: 1rem;
-      padding-left: 1rem;
+      height: 0;
+      padding: 3rem;
+      
     }
     .menu {
       display: flex;
-
       width: 100%;
       justify-content: center;
-      margin-right: 6rem;
+      margin-right: 4rem;
     }
-    .logo {
-      display: flex;
-      justify-content: center;
-      padding: 0;
-      width: 10%;
-    }
-
     .logo img {
-      padding-left: 2rem;
+      height: 50px;
+
+      width: 60px;
     }
 
     .title {
@@ -328,9 +355,18 @@ PROJECT LITS
       line-height: 140%;
     }
 
-    .a-down {
-      position: relative;
-      bottom: 3.5rem;
+    .grid > img {
+      max-width: 70%;
+    }
+
+    .project{
+      padding-top: 3rem;
+    }
+
+    .projName {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
     }
 
     .list {
@@ -339,36 +375,11 @@ PROJECT LITS
       justify-content: center;
       align-content: center;
       grid-gap: 2rem;
+      padding: 2rem;
     }
 
-    .project {
-      padding-top: 0;
-      
-    }
-
-    .p3 {
-      padding-bottom: 0;
-    }
-
-    .project > .content {
-      padding: 3rem;
-      padding-left: 0;
-      padding-bottom: 1rem;
-      width: 100%;
-      margin-left: 3rem;
-
-      position: relative;
-      right: 3rem;
-    }
-
-    .content > a {
-      padding-right: 1rem;
-    }
-
-  
-
-    footer {
-      display: none;
+    footer{
+      height: 0;    
     }
   }
 }
@@ -376,30 +387,207 @@ PROJECT LITS
 
 
 
-@media screen and (min-device-width: 1400px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+
+@media screen and(min-device-width: 1440px) and (max-device-width: 1599px) {
   body {
-    height: 100vh;
     overflow-x: hidden;
+
     .header-flex {
-      padding-right: 1rem;
-      padding-left: 1rem;
+      height: 0;
+      padding: 3rem;
+     
     }
+
     .menu {
       display: flex;
-
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      justify-content: center;
-      margin-right: 6rem;
-    }
-    .logo {
-      display: flex;
-      justify-content: center;
       padding: 0;
-      width: 10%;
+      
+      
+    }
+
+    .menu li {
+      font-size: 16px;
     }
 
     .logo img {
-      padding-left: 2rem;
+      padding: 0;
+      width: 60px;
+      height: 50px;
+    }
+    .ham {
+      width: 35px;
+    }
+    .title {
+      font-size: 100px;
+      line-height: 140%;
+    }
+
+    .grid > img {
+      max-width: 70%;
+    }
+
+    .project{
+      padding-top: 3rem;
+    }
+
+    .projName {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+    }
+
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      justify-content: center;
+      align-content: center;
+      grid-gap: 2rem;
+      padding: 2rem;
+    }
+   
+    .a-down{
+      position: relative;
+     bottom: 3rem;
+      
+    }
+
+    footer {
+      height: 0vh;
+      font-size: 24px;
+      padding-bottom: 3rem;
+      padding-right: 5rem;
+      display: flex;
+      justify-content: flex-end;
+
+      .pgnum{
+        font-size: 24px;
+      }
+
+      .top{
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and(min-device-width: 1600px) and (max-device-width: 1919px) {
+  body {
+    overflow-x: hidden;
+    
+
+    .header-flex {
+      height: 0;
+      padding: 3rem;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+  
+    }
+
+    .menu li {
+      font-size: 16px;
+    }
+    
+    .logo img {
+      padding: 0;
+    }
+    .ham {
+      width: 35px;
+    }
+    .title {
+      font-size: 100px;
+      line-height: 140%;
+    }
+
+    .grid > img {
+      max-width: 70%;
+    }
+
+    .project{
+      padding-top: 3rem;
+    }
+
+    .projName {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+    }
+
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      justify-content: center;
+      align-content: center;
+      grid-gap: 2rem;
+      padding: 2rem;
+    }
+   
+    .a-down{
+      position: relative;
+     bottom: 3rem;
+      
+    }
+
+    
+    footer {
+      height: 0vh;
+      font-size: 24px;
+      padding-bottom: 3rem;
+      padding-right: 5rem;
+      display: flex;
+      justify-content: flex-end;
+
+      .pgnum{
+        font-size: 24px;
+      }
+
+      .top{
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+@media screen and(min-device-width: 1920px) and (max-device-width: 2500px) {
+  body {
+    overflow-x: hidden;
+    
+    
+
+    .header-flex {
+     height: 0;
+     padding: 3rem;
+    
+      
+    }
+
+    .menu {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-right: 5rem;
+    }
+
+    .menu li {
+      font-size: 16px;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 50px;
+    }
+    .ham {
+      width: 35px;
     }
 
     .title {
@@ -407,250 +595,134 @@ PROJECT LITS
       line-height: 140%;
     }
 
-    .a-down {
-      position: relative;
-      bottom: 3.5rem;
+    .grid > img {
+      max-width: 70%;
+    }
+
+    .project{
+      padding-top: 3rem;
+    }
+
+    .projName {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
     }
 
     .list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
       justify-content: center;
       align-content: center;
       grid-gap: 2rem;
+      padding: 2rem;
     }
-
-    .project {
-      padding-top: 0;
+   
+    .a-down{
+      position: relative;
+     bottom: 3rem;
       
     }
 
-    .p3 {
-      padding-bottom: 0;
-    }
-
-    .project > .content {
-      padding: 3rem;
-      padding-left: 0;
-      padding-bottom: 1rem;
-      width: 100%;
-      margin-left: 3rem;
-
-      position: relative;
-      right: 3rem;
-    }
-
-    .content > a {
-      padding-right: 1rem;
-    }
-
-  
-
     footer {
-      display: none;
+      height: 0vh;
+      font-size: 24px;
+      padding-bottom: 3rem;
+      padding-right: 5rem;
+      display: flex;
+      justify-content: flex-end;
+
+      .pgnum{
+        font-size: 24px;
+      }
+
+     
     }
+    
   }
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (min-device-width: 1600px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and(min-device-width: 2560px) and (max-device-width: 3840px) {
   body {
-    height: 100vh;
     overflow-x: hidden;
+    
+
     .header-flex {
-      padding: 3rem;
-
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+      padding: 4rem;
+      padding-bottom: 2rem;
+      height: 0;
+      
     }
-    .menu {
-      display: inline;
 
+    .menu {
+      display: flex;
       width: 100%;
       justify-content: center;
-   margin-right: 17rem;
+      align-items: center;
     }
+
     .menu li {
-      display: inline;
-      margin-right: 1rem;
-    }
-    .menu li a {
-      font-size: 16px;
-    }
-    .logo {
-      padding: 0;
+      font-size: 24px;
     }
 
     .logo img {
-      padding-left: 2rem;
-      width: 80px;
-      height: 70px;
+      width: 60px;
+      height: 50px;
+    }
+    .ham {
+      width: 35px;
     }
 
     .title {
-      
       font-size: 150px;
       line-height: 140%;
     }
 
-    .a-down {
-      position: relative;
-      bottom: 6rem;
+    .grid > img {
+      max-width: 70%;
     }
+
+    .project{
+      padding-top: 3rem;
+    }
+
+    .projName {
+      position: absolute;
+      bottom: 5%;
+      left: 15%;
+    }
+
 
     .list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
       justify-content: center;
-      align-items: center;
+      align-content: center;
       grid-gap: 2rem;
-      
-      padding: 2rem;
-
-      h1 {
-        font-size: 48px;
-      }
-    }
-
-    .project {
-      padding-top: 0;
      
     }
-
-    .p3 {
-      padding-bottom: 0;
-    }
-
-    .project > .content {
-      padding: 3rem;
-      padding-left: 0;
-      padding-bottom: 1rem;
-      width: 100%;
-      margin-left: 3rem;
-
+   
+    .a-down{
       position: relative;
-      right: 3rem;
-    }
-
-    .content > a {
-      padding-right: 1rem;
-    }
-
-    .pheader > img {
-      max-width: 100%;
+     bottom: 3rem;
+      
     }
 
     footer {
-      display: none;
-    }
-  }
-}
-
-
-
-@media screen and (min-device-width: 2000px) and (max-device-width: 2560px) and (-webkit-min-device-pixel-ratio: 1) {
-  body {
-    height: 100vh;
-    overflow-x: hidden;
-    .header-flex {
-      padding: 3rem;
-
+      height: 0vh;
+      font-size: 24px;
+      padding-bottom: 3rem;
+      padding-right: 5rem;
       display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-    }
-    .menu {
-      display: inline;
+      justify-content: flex-end;
 
-      width: 100%;
-      justify-content: center;
-   margin-right: 17rem;
-    }
-    .menu li {
-      display: inline;
-      margin-right: 1rem;
-    }
-    .menu li a {
-      font-size: 16px;
-    }
-    .logo {
-      padding: 0;
-    }
-
-    .logo img {
-      padding-left: 2rem;
-      width: 80px;
-      height: 70px;
-    }
-
-    .title {
-      
-      font-size: 150px;
-      line-height: 140%;
-    }
-
-    .a-down {
-      position: relative;
-      bottom: 6rem;
-    }
-
-    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
-      justify-content: center;
-      align-items: center;
-      grid-gap: 2rem;
-      
-      padding: 2rem;
-
-      h1 {
-        font-size: 48px;
+      .pgnum{
+        font-size: 24px;
       }
-    }
 
-    .project {
-      padding-top: 0;
      
-    }
-
-    .p3 {
-      padding-bottom: 0;
-    }
-
-    .project > .content {
-      padding: 3rem;
-      padding-left: 0;
-      padding-bottom: 1rem;
-      width: 100%;
-      margin-left: 3rem;
-
-      position: relative;
-      right: 3rem;
-    }
-
-    .content > a {
-      padding-right: 1rem;
-    }
-
-    .pheader > img {
-      max-width: 100%;
-    }
-
-    footer {
-      display: none;
     }
   }
 }

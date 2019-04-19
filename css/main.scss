@@ -3,6 +3,7 @@ $colors: (
   black: #000000,
   offblack: #1e2125,
   secondaryblue: rgb(83, 167, 234),
+  orange: #cd640d,
   blue: #0a7198
 );
 
@@ -39,8 +40,8 @@ body {
   .header-flex {
     display: flex;
     align-items: center;
-   height:0;
-   padding: 2rem;
+    height: 0;
+    padding: 2rem;
     margin: auto 0;
   }
 
@@ -53,8 +54,6 @@ body {
 
     width: 50px;
   }
-
-
 
   .ham {
     width: 35px;
@@ -159,27 +158,27 @@ body {
 
     width: 5%;
   }
-/*****************
+  /*****************
   MENU LINK Animations
   */
 
-  
-  .link-1::after, .link-2::after,.link-3::after {
-    content: '';
+  .link-1::after,
+  .link-2::after,
+  .link-3::after {
+    content: "";
     display: block;
     width: 0;
-    height:2px;
+    height: 2px;
     background: map-get($colors, secondaryblue);
     transition: width 0.3s;
   }
-  
-  .link-1:hover::after, .link-2:hover::after, .link-3:hover::after {
-    transition: width 0.3s;
-    width:100%;
-  }
-  
- 
 
+  .link-1:hover::after,
+  .link-2:hover::after,
+  .link-3:hover::after {
+    transition: width 0.3s;
+    width: 100%;
+  }
 
   /*** 
 TITLE SCSS AND ARROW DOWN ICON 
@@ -195,9 +194,45 @@ TITLE SCSS AND ARROW DOWN ICON
     font-family: big john;
     text-align: center;
     font-size: 48px;
-    letter-spacing: 0.5rem;
-    line-height: 3.5rem;
+    line-height: 140%;
     color: map-get($colors, blue);
+    width: 100%;
+  }
+
+  .a-down {
+    animation: a-down 5s infinite linear;
+    position: relative;
+    font-size: 1.5rem;
+  }
+
+  @keyframes a-down {
+    0% {
+      top: (0em);
+    }
+
+    40% {
+      top: (0em);
+    }
+
+    43% {
+      top: (-0.9em);
+    }
+
+    46% {
+      top: (0em);
+    }
+
+    48% {
+      top: (-0.4em);
+    }
+
+    50% {
+      top: (0em);
+    }
+
+    100% {
+      top: (0em);
+    }
   }
 
   /***** 
@@ -205,7 +240,7 @@ PROJECT LITS
 ****/
 
   .project {
-    padding-top: 2rem;
+    padding: 1.5rem;
   }
 
   .p3 {
@@ -214,21 +249,56 @@ PROJECT LITS
 
   .p-header {
     position: relative;
+    max-width: 100%;
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 0, 0, 0),
+      rgba(30, 33, 37, 1)
+    );
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
     text-align: center;
+  }
+
+  .p-header > img {
+    max-width: 100%;
   }
 
   .projName {
     position: absolute;
-    bottom: 60px;
-    left: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: big john;
+    color: map-get($colors, orange);
+    font-size: 24px;
+    width: 100%;
+  }
+
+  .projDes {
+    color: white;
     font-family: slim joe;
-    color: map-get($colors, offblack);
-    text-align: left;
-    font-size: 36px;
+
+    width: 100%;
+    font-size: 12px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .project > .content {
     padding: 1rem;
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -247,7 +317,7 @@ PROJECT LITS
   }
 
   .button {
-    font-family: raleway;
+    font-family: "raleway";
     color: #fff;
     font-size: 12px;
     text-decoration: none;
@@ -259,8 +329,13 @@ PROJECT LITS
   }
 
   .github {
-    color: black;
+    color: map-get($colors, blue);
     text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .github:hover {
+    color: map-get($colors, offblack);
   }
 
   footer {
@@ -268,14 +343,13 @@ PROJECT LITS
     padding: 2rem;
     font-family: "raleway";
     display: flex;
-    .pgnum{
+    .pgnum {
       font-family: big john;
       font-size: 16px;
     }
     .pgnum > span {
-      color: map-get($colors,blue);
+      color: map-get($colors, blue);
     }
-    
   }
 
   footer > a {
@@ -283,173 +357,239 @@ PROJECT LITS
     flex-grow: 1;
   }
 
-  footer > a:hover{
+  footer > a:hover {
     color: map-get($colors, secondaryblue);
   }
-
-
 }
 
-
-
-@media screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
     overflow-x: hidden;
     .menu {
       display: flex;
-      justify-content: center;
       width: 100%;
-      margin-right: 3rem;
     }
 
-    .header-flex{
-      
+    .header-flex {
       height: 0;
       padding: 3rem;
     }
 
-
-    
-
-    .content > img {
-      max-width: 70%;
+    .title {
+      font-size: 64px;
     }
 
-    .project{
-      padding-top: 3rem;
+    .p-header {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .p-header > img {
+      max-width: 80%;
+    }
+
+    .overlay {
+      width: 80%;
+      left: 10%;
+    }
+
+    .project {
+      padding: 2rem;
+    }
+    .project > .content {
+      padding: 2rem;
     }
 
     .projName {
-      position: absolute;
-      bottom: 5%;
-      left: 15%;
+      font-size: 36px;
     }
-   
+
+    .projDes {
+      font-size: 12px;
+      font-family: slim joe;
+      top: 87%;
+    }
   }
 }
 
-
-@media screen and (min-device-width: 1024px) and (max-device-width: 1439px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
-   
     overflow-x: hidden;
     .header-flex {
       height: 0;
       padding: 3rem;
-      
     }
     .menu {
       display: flex;
       width: 100%;
-      justify-content: center;
-      margin-right: 4rem;
     }
-    
+
+    .a-down {
+      animation: a-down 5s infinite linear;
+      position: relative;
+      font-size: 2rem;
+    }
+
+    @keyframes a-down {
+      0% {
+        top: (-2em);
+      }
+
+      40% {
+        top: (-2em);
+      }
+
+      43% {
+        top: (-1.1em);
+      }
+
+      46% {
+        top: (-2em);
+      }
+
+      48% {
+        top: (-0.6em);
+      }
+
+      50% {
+        top: (-2em);
+      }
+
+      100% {
+        top: (-2em);
+      }
+    }
+
+    .p-header {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .p-header > img {
+      max-width: 80%;
+    }
+
+    .overlay {
+      width: 80%;
+      left: 10%;
+    }
     .title {
       font-size: 100px;
       line-height: 140%;
     }
 
-   
-
-    .grid > img {
-      max-width: 70%;
-    }
-
-    .project{
-      padding-top: 3rem;
-    }
-
     .projName {
-      position: absolute;
-      bottom: 5%;
-      left: 5%;
+      font-size: 48px;
     }
 
-    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      justify-content: center;
-      align-content: center;
-      grid-gap: 2rem;
+    .projDes {
+      font-size: 16px;
+    }
+    .project {
       padding: 2rem;
     }
+    .project > .content {
+      padding: 2rem;
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
 
-    footer{
-      height: 0;    
+    .a-down {
+      position: relative;
+      bottom: 4rem;
+    }
+
+    footer {
+      height: 0;
     }
   }
 }
 
-
-
-
-
-@media screen and(min-device-width: 1440px) and (max-device-width: 1599px) {
+@media screen and(min-device-width: 1440px) and (max-device-width: 1600px) {
   body {
     overflow-x: hidden;
 
     .header-flex {
       height: 0;
       padding: 3rem;
-     
     }
 
     .menu {
       display: flex;
-      justify-content: center;
-      align-items: center;
+
       width: 100%;
-      padding: 0;
-      
-      
     }
 
     .menu li {
       font-size: 16px;
     }
 
- 
     .ham {
       width: 35px;
     }
 
-    .logo img{
+    .logo img {
       width: 60px;
       height: 50px;
     }
-    .title {
-      font-size: 100px;
-      line-height: 140%;
+
+    .a-down {
+      animation: a-down 5s infinite linear;
+      position: relative;
+      font-size: 2rem;
     }
 
-    .grid > img {
-      max-width: 70%;
-    }
+    @keyframes a-down {
+      0% {
+        top: (-2em);
+      }
 
-    .project{
-      padding-top: 3rem;
-    }
+      40% {
+        top: (-2em);
+      }
 
-    .projName {
-      position: absolute;
-      bottom: 5%;
-      left: 5%;
+      43% {
+        top: (-1.1em);
+      }
+
+      46% {
+        top: (-2em);
+      }
+
+      48% {
+        top: (-0.6em);
+      }
+
+      50% {
+        top: (-2em);
+      }
+
+      100% {
+        top: (-2em);
+      }
     }
 
     .list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
       justify-content: center;
       align-content: center;
-      grid-gap: 2rem;
+      padding: 1rem;
+    }
+    .project > .content {
       padding: 2rem;
     }
-   
-    .a-down{
-      position: relative;
-     bottom: 3rem;
-      
+
+    .projName {
+      font-size: 48px;
+    }
+
+    .projDes {
+      font-size: 16px;
     }
 
     footer {
@@ -460,21 +600,16 @@ PROJECT LITS
       display: flex;
       justify-content: flex-end;
 
-      .pgnum{
+      .pgnum {
         font-size: 24px;
-      }
-
-      .top{
-        display: none;
       }
     }
   }
 }
 
-@media screen and(min-device-width: 1600px) and (max-device-width: 1919px) {
+@media screen and(min-device-width: 1600px) and (max-device-width: 1920px) {
   body {
     overflow-x: hidden;
-    
 
     .header-flex {
       height: 0;
@@ -483,129 +618,61 @@ PROJECT LITS
 
     .menu {
       display: flex;
-      justify-content: center;
-      align-items: center;
+
       width: 100%;
-  
     }
 
     .menu li {
       font-size: 16px;
     }
-    
-    .logo img{
+
+    .logo img {
       width: 60px;
       height: 50px;
     }
     .ham {
       width: 35px;
     }
+
     .title {
       font-size: 100px;
       line-height: 140%;
     }
 
-    .grid > img {
-      max-width: 70%;
-    }
-
-    .project{
-      padding-top: 3rem;
-    }
-
-    .projName {
-      position: absolute;
-      bottom: 5%;
-      left: 5%;
-    }
-
-    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      justify-content: center;
-      align-content: center;
-      grid-gap: 2rem;
-      padding: 2rem;
-    }
-   
-    .a-down{
+    .a-down {
+      animation: a-down 5s infinite linear;
       position: relative;
-     bottom: 3rem;
-      
+      font-size: 2rem;
     }
 
-    
-    footer {
-      height: 0vh;
-      font-size: 24px;
-      padding-bottom: 3rem;
-      padding-right: 5rem;
-      display: flex;
-      justify-content: flex-end;
-
-      .pgnum{
-        font-size: 24px;
+    @keyframes a-down {
+      0% {
+        top: (-2em);
       }
 
-      .top{
-        display: none;
+      40% {
+        top: (-2em);
       }
-    }
-  }
-}
 
+      43% {
+        top: (-1.1em);
+      }
 
+      46% {
+        top: (-2em);
+      }
 
-@media screen and(min-device-width: 1920px) and (max-device-width: 2500px) {
-  body {
-    overflow-x: hidden;
-    
-    
+      48% {
+        top: (-0.6em);
+      }
 
-    .header-flex {
-     height: 0;
-     padding: 3rem;
-    
-      
-    }
+      50% {
+        top: (-2em);
+      }
 
-    .menu {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      margin-right: 5rem;
-    }
-
-    .menu li {
-      font-size: 16px;
-    }
-    .logo img{
-      width: 70px;
-      height: 60px;
-    }
-    
-    .ham {
-      width: 35px;
-    }
-
-    .title {
-      font-size: 100px;
-      line-height: 140%;
-    }
-
-    .grid > img {
-      max-width: 70%;
-    }
-
-    .project{
-      padding-top: 3rem;
-    }
-
-    .projName {
-      position: absolute;
-      bottom: 5%;
-      left: 5%;
+      100% {
+        top: (-2em);
+      }
     }
 
     .list {
@@ -613,14 +680,18 @@ PROJECT LITS
       grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
       justify-content: center;
       align-content: center;
-      grid-gap: 2rem;
+      padding: 1rem;
+    }
+    .project > .content {
       padding: 2rem;
     }
-   
-    .a-down{
-      position: relative;
-     bottom: 3rem;
-      
+
+    .projName {
+      font-size: 64px;
+    }
+
+    .projDes {
+      font-size: 16px;
     }
 
     footer {
@@ -631,36 +702,130 @@ PROJECT LITS
       display: flex;
       justify-content: flex-end;
 
-      .pgnum{
+      .pgnum {
         font-size: 24px;
       }
-
-     
     }
-    
   }
 }
 
-
-
-@media screen and(min-device-width: 2560px) and (max-device-width: 3840px) {
+@media screen and(min-device-width: 1920px) and (max-device-width: 2560px) {
   body {
     overflow-x: hidden;
-    
 
     .header-flex {
-      padding: 4rem;
-      padding-bottom: 2rem;
       height: 0;
-      
+      padding: 3rem;
     }
 
     .menu {
       display: flex;
       width: 100%;
+    }
+
+    .menu li {
+      font-size: 16px;
+    }
+    .logo img {
+      width: 70px;
+      height: 60px;
+    }
+
+    .ham {
+      width: 35px;
+    }
+
+    .title {
+      font-size: 140px;
+      line-height: 140%;
+    }
+
+    .a-down {
+      animation: a-down 5s infinite linear;
+      position: relative;
+      font-size: 2rem;
+    }
+
+    @keyframes a-down {
+      0% {
+        top: (-2em);
+      }
+
+      40% {
+        top: (-2em);
+      }
+
+      43% {
+        top: (-1.1em);
+      }
+
+      46% {
+        top: (-2em);
+      }
+
+      48% {
+        top: (-0.6em);
+      }
+
+      50% {
+        top: (-2em);
+      }
+
+      100% {
+        top: (-2em);
+      }
+    }
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
       justify-content: center;
-      align-items: center;
-      margin-right: 5rem;
+      align-content: center;
+      padding: 2rem;
+    }
+
+    .project > .content {
+      padding: 2rem;
+      padding-left: 10rem;
+      padding-right: 10rem;
+    }
+
+    .projName {
+      font-size: 64px;
+    }
+
+    .projDes {
+      font-size: 18px;
+    }
+
+    footer {
+      height: 0vh;
+      font-size: 24px;
+      padding-bottom: 3rem;
+      padding-right: 5rem;
+      display: flex;
+      justify-content: flex-end;
+      padding-left: 5rem;
+
+      .pgnum {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@media screen and(min-device-width: 2560px) and (max-device-width: 3840px) {
+  body {
+    overflow-x: hidden;
+
+    .header-flex {
+      padding: 4rem;
+
+      height: 0;
+    }
+
+    .menu {
+      display: flex;
+      width: 100%;
     }
 
     .menu li {
@@ -668,46 +833,60 @@ PROJECT LITS
     }
 
     .logo img {
-      width: 90px;
-      height: 80px;
+      width: 70px;
+      height: 60px;
     }
     .ham {
       width: 35px;
     }
 
     .title {
-      font-size: 150px;
+      font-size: 170px;
       line-height: 140%;
     }
 
-    .grid > img {
-      max-width: 70%;
+    .a-down {
+      animation: a-down 5s infinite linear;
+      position: relative;
+      font-size: 4rem;
     }
 
-    .project{
-      padding-top: 3rem;
-    }
+    @keyframes a-down {
+      0% {
+        top: (-2em);
+      }
 
-    .projName {
-      position: absolute;
-      bottom: 5%;
-      left: 15%;
-    }
+      40% {
+        top: (-2em);
+      }
 
+      43% {
+        top: (-1.1em);
+      }
+
+      46% {
+        top: (-2em);
+      }
+
+      48% {
+        top: (-0.6em);
+      }
+
+      50% {
+        top: (-2em);
+      }
+
+      100% {
+        top: (-2em);
+      }
+    }
 
     .list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
       justify-content: center;
       align-content: center;
       grid-gap: 2rem;
-     
-    }
-   
-    .a-down{
-      position: relative;
-     bottom: 3rem;
-      
     }
 
     footer {
@@ -717,12 +896,15 @@ PROJECT LITS
       padding-right: 5rem;
       display: flex;
       justify-content: flex-end;
+      padding-left: 5rem;
 
-      .pgnum{
+      .pgnum {
         font-size: 24px;
       }
 
-     
+      .top {
+        display: none;
+      }
     }
   }
 }

@@ -721,6 +721,7 @@ PROJECT LITS
     .menu {
       display: flex;
       width: 100%;
+      
     }
 
     .menu li {
@@ -737,7 +738,7 @@ PROJECT LITS
 
     .title {
       font-size: 140px;
-      line-height: 140%;
+     
     }
 
     .a-down {
@@ -791,6 +792,8 @@ PROJECT LITS
 
     .projName {
       font-size: 64px;
+     position: absolute;
+     top: 60%;
     }
 
     .projDes {

@@ -839,7 +839,6 @@ body footer > a:hover {
   }
   body .title {
     font-size: 140px;
-    line-height: 140%;
   }
   body .a-down {
     -webkit-animation: a-down 5s infinite linear;
@@ -912,6 +911,8 @@ body footer > a:hover {
   }
   body .projName {
     font-size: 64px;
+    position: absolute;
+    top: 60%;
   }
   body .projDes {
     font-size: 18px;

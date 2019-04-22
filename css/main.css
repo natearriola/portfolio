@@ -309,13 +309,13 @@ body .p-header > img {
 
 body .projName {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   font-family: big john;
   color: #cd640d;
-  font-size: 24px;
+  font-size: 36px;
   width: 100%;
 }
 
@@ -457,11 +457,10 @@ body footer > a:hover {
     padding: 2rem;
   }
   body .projName {
-    font-size: 36px;
+    position: absolute;
+    top: 70%;
   }
   body .projDes {
-    font-size: 12px;
-    font-family: slim joe;
     top: 87%;
   }
 }
@@ -560,6 +559,8 @@ body footer > a:hover {
   }
   body .projName {
     font-size: 48px;
+    position: absolute;
+    top: 70%;
   }
   body .projDes {
     font-size: 16px;
@@ -584,6 +585,16 @@ body footer > a:hover {
 @media screen and (min-device-width: 1440px) and (max-device-width: 1600px) {
   body {
     overflow-x: hidden;
+    /*  GRID FOR PROJECTS
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      justify-content: center;
+      align-content: center;
+      padding: 1rem;
+    }
+
+    */
   }
   body .header-flex {
     height: 0;
@@ -657,23 +668,20 @@ body footer > a:hover {
       top: -2em;
     }
   }
-  body .list {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(500px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    padding: 1rem;
+  body .p-header > img {
+    max-width: 60%;
+  }
+  body .overlay {
+    width: 60%;
+    left: 20%;
   }
   body .project > .content {
     padding: 2rem;
   }
   body .projName {
     font-size: 48px;
+    position: absolute;
+    top: 65%;
   }
   body .projDes {
     font-size: 16px;
@@ -698,6 +706,15 @@ body footer > a:hover {
 @media screen and (min-device-width: 1600px) and (max-device-width: 1920px) {
   body {
     overflow-x: hidden;
+    /*
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+      justify-content: center;
+      align-content: center;
+      padding: 1rem;
+    }
+*/
   }
   body .header-flex {
     height: 0;
@@ -775,23 +792,52 @@ body footer > a:hover {
       top: -2em;
     }
   }
-  body .list {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(600px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  body .project {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    padding: 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  body .project > .content {
-    padding: 2rem;
+  body .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 60%;
+  }
+  body .p-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body .p-header > img {
+    max-width: 60%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  body .overlay {
+    width: 60%;
+    left: 20%;
   }
   body .projName {
     font-size: 64px;
+    position: absolute;
+    top: 55%;
   }
   body .projDes {
     font-size: 16px;
@@ -816,6 +862,16 @@ body footer > a:hover {
 @media screen and (min-device-width: 1920px) and (max-device-width: 2560px) {
   body {
     overflow-x: hidden;
+    /*
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+      justify-content: center;
+      align-content: center;
+      padding: 2rem;
+    }
+
+    */
   }
   body .header-flex {
     height: 0;
@@ -892,22 +948,47 @@ body footer > a:hover {
       top: -2em;
     }
   }
-  body .list {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(700px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+  body .project {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    padding: 2rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  body .project > .content {
-    padding: 2rem;
-    padding-left: 10rem;
-    padding-right: 10rem;
+  body .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 60%;
+  }
+  body .p-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body .p-header > img {
+    max-width: 80%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  body .overlay {
+    width: 80%;
+    left: 10%;
   }
   body .projName {
     font-size: 64px;
@@ -938,6 +1019,16 @@ body footer > a:hover {
 @media screen and (min-device-width: 2560px) and (max-device-width: 3840px) {
   body {
     overflow-x: hidden;
+    /*
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
+      justify-content: center;
+      align-content: center;
+      grid-gap: 2rem;
+    }
+
+    */
   }
   body .header-flex {
     padding: 4rem;
@@ -1015,17 +1106,47 @@ body footer > a:hover {
       top: -2em;
     }
   }
-  body .list {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(800px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
+  body .project {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    grid-gap: 2rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 60%;
+  }
+  body .p-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body .p-header > img {
+    max-width: 80%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  body .overlay {
+    width: 80%;
+    left: 10%;
   }
   body footer {
     height: 0vh;

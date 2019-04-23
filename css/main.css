@@ -332,12 +332,14 @@ body .projName {
 }
 
 body .projDes {
+  background-color: #1e2125;
+  width: 100%;
   color: white;
   font-family: panton;
   width: 100%;
   font-size: 12px;
   position: absolute;
-  top: 80%;
+  top: 90%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -474,7 +476,7 @@ body footer > a:hover {
     top: 70%;
   }
   body .projDes {
-    top: 87%;
+    top: 95%;
   }
 }
 
@@ -694,6 +696,7 @@ body footer > a:hover {
   }
   body .projDes {
     font-size: 16px;
+    top: 95%;
   }
   body footer {
     height: 0vh;
@@ -846,6 +849,7 @@ body footer > a:hover {
   }
   body .projDes {
     font-size: 16px;
+    top: 95%;
   }
   body footer {
     height: 0vh;
@@ -1132,6 +1136,9 @@ body footer > a:hover {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
     width: 60%;
+  }
+  body .projDes {
+    top: 95%;
   }
   body .p-header {
     display: -webkit-box;

@@ -217,7 +217,7 @@ body .left {
 }
 
 body .title {
-  font-family: big john;
+  font-family: panton;
   text-align: center;
   font-size: 48px;
   line-height: 140%;
@@ -327,7 +327,7 @@ body .projName {
 
 body .projDes {
   color: white;
-  font-family: 'raleway';
+  font-family: panton;
   width: 100%;
   font-size: 12px;
   position: absolute;

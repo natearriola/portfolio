@@ -8,8 +8,15 @@
 }
 
 @font-face {
-  font-family: "slim joe";
-  src: url("/fonts/slimjoe-webfont.woff2") format("woff2"), url("/fonts/slimjoe-webfont.woff") format("woff");
+  font-family: "panton";
+  src: url("/fonts/panton.woff2") format("woff2"), url("/fonts/panton.WOFF") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "panton";
+  src: url("/fonts/panton-light.woff2") format("woff2"), url("/fonts/panton-light.WOFF") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -313,7 +320,8 @@ body .projName {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  font-family: big john;
+  font-family: panton;
+  font-weight: bold;
   color: #cd640d;
   font-size: 36px;
   width: 100%;
@@ -321,7 +329,7 @@ body .projName {
 
 body .projDes {
   color: white;
-  font-family: slim joe;
+  font-family: 'raleway';
   width: 100%;
   font-size: 12px;
   position: absolute;
@@ -360,11 +368,10 @@ body .buttonstyle:hover {
 }
 
 body .button {
-  font-family: "raleway";
+  font-family: panton;
   color: #fff;
   font-size: 12px;
   text-decoration: none;
-  letter-spacing: 0.1rem;
 }
 
 body .arrow {
@@ -385,14 +392,15 @@ body .github:hover {
 body footer {
   height: 0;
   padding: 2rem;
-  font-family: "raleway";
+  font-family: panton;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 body footer .pgnum {
-  font-family: big john;
+  font-family: panton;
+  font-weight: bold;
   font-size: 16px;
 }
 
@@ -405,6 +413,7 @@ body footer > a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  font-family: panton;
 }
 
 body footer > a:hover {
@@ -422,8 +431,8 @@ body footer > a:hover {
     width: 100%;
   }
   body .header-flex {
-    height: 0;
-    padding: 3rem;
+    height: 5vh;
+    padding: 1rem;
   }
   body .title {
     font-size: 64px;
@@ -470,8 +479,8 @@ body footer > a:hover {
     overflow-x: hidden;
   }
   body .header-flex {
-    height: 0;
-    padding: 3rem;
+    height: 5vh;
+    padding: 2rem;
   }
   body .menu {
     display: -webkit-box;
@@ -596,10 +605,6 @@ body footer > a:hover {
 
     */
   }
-  body .header-flex {
-    height: 0;
-    padding: 3rem;
-  }
   body .menu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -715,10 +720,6 @@ body footer > a:hover {
       padding: 1rem;
     }
 */
-  }
-  body .header-flex {
-    height: 0;
-    padding: 3rem;
   }
   body .menu {
     display: -webkit-box;
@@ -874,7 +875,6 @@ body footer > a:hover {
     */
   }
   body .header-flex {
-    height: 0;
     padding: 3rem;
   }
   body .menu {
@@ -1032,7 +1032,6 @@ body footer > a:hover {
   }
   body .header-flex {
     padding: 4rem;
-    height: 0;
   }
   body .menu {
     display: -webkit-box;
@@ -1163,9 +1162,6 @@ body footer > a:hover {
   }
   body footer .pgnum {
     font-size: 24px;
-  }
-  body footer .top {
-    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */

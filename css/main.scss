@@ -20,9 +20,16 @@ $colors: (
 }
 
 @font-face {
-  font-family: "slim joe";
-  src: url("/fonts/slimjoe-webfont.woff2") format("woff2"),
-    url("/fonts/slimjoe-webfont.woff") format("woff");
+  font-family: "panton";
+  src: url("/fonts/panton.woff2") format("woff2"),
+    url("/fonts/panton.WOFF") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "panton";
+  src: url("/fonts/panton-light.woff2") format("woff2"),
+    url("/fonts/panton-light.WOFF") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -278,7 +285,8 @@ PROJECT LITS
     top: 55%;
     left: 50%;
     transform: translateX(-50%);
-    font-family: big john;
+    font-family: panton;
+    font-weight: bold;
     color: map-get($colors, orange);
     font-size: 36px;
     width: 100%;
@@ -286,7 +294,7 @@ PROJECT LITS
 
   .projDes {
     color: white;
-    font-family: slim joe;
+    font-family: 'raleway';
 
     width: 100%;
     font-size: 12px;
@@ -317,11 +325,11 @@ PROJECT LITS
   }
 
   .button {
-    font-family: "raleway";
+    font-family: panton;
     color: #fff;
     font-size: 12px;
     text-decoration: none;
-    letter-spacing: 0.1rem;
+    
   }
 
   .arrow {
@@ -341,10 +349,11 @@ PROJECT LITS
   footer {
     height: 0;
     padding: 2rem;
-    font-family: "raleway";
+    font-family: panton;
     display: flex;
     .pgnum {
-      font-family: big john;
+      font-family: panton;
+      font-weight: bold;
       font-size: 16px;
     }
     .pgnum > span {
@@ -355,6 +364,7 @@ PROJECT LITS
   footer > a {
     color: black;
     flex-grow: 1;
+    font-family: panton;
   }
 
   footer > a:hover {
@@ -371,8 +381,8 @@ PROJECT LITS
     }
 
     .header-flex {
-      height: 0;
-      padding: 3rem;
+      height: 5vh;
+      padding: 1rem;
     }
 
     .title {
@@ -419,9 +429,9 @@ PROJECT LITS
 @media screen and (min-device-width: 1024px) and (max-device-width: 1440px) and (-webkit-min-device-pixel-ratio: 1) {
   body {
     overflow-x: hidden;
-    .header-flex {
-      height: 0;
-      padding: 3rem;
+    .header-flex{
+      height: 5vh;
+      padding: 2rem;
     }
     .menu {
       display: flex;
@@ -517,10 +527,7 @@ PROJECT LITS
   body {
     overflow-x: hidden;
 
-    .header-flex {
-      height: 0;
-      padding: 3rem;
-    }
+   
 
     .menu {
       display: flex;
@@ -628,10 +635,7 @@ PROJECT LITS
   body {
     overflow-x: hidden;
 
-    .header-flex {
-      height: 0;
-      padding: 3rem;
-    }
+    
 
     .menu {
       display: flex;
@@ -760,7 +764,7 @@ PROJECT LITS
     overflow-x: hidden;
 
     .header-flex {
-      height: 0;
+     
       padding: 3rem;
     }
 
@@ -896,7 +900,7 @@ PROJECT LITS
     .header-flex {
       padding: 4rem;
 
-      height: 0;
+     
     }
 
     .menu {
@@ -1009,9 +1013,7 @@ PROJECT LITS
         font-size: 24px;
       }
 
-      .top {
-        display: none;
-      }
+     
     }
   }
 }

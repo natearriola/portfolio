@@ -1,66 +1,74 @@
 $colors: (
-  grey: #c9c9c9,
-  black: #000000,
-  offblack: #1e2125,
-  secondaryblue: rgb(83, 167, 234),
-  orange: #cd640d,
-  blue: #0a7198
+  primary: #a09383,
+  secondary: #252625,
+  accent: #8497a1,
+  extra: #f8edda
 );
 
+/******************** 
+Responsive Media Queries 
+********/
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
 /* FONTS */
 
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway");
 
-@font-face {
-  font-family: "big john";
-  src: url("/fonts/bigjohn-webfont.woff2") format("woff2"),
-    url("/fonts/bigjohn-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "panton";
-  src: url("/fonts/panton.woff2") format("woff2"),
-    url("/fonts/panton.WOFF") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "panton";
-  src: url("/fonts/panton-light.woff2") format("woff2"),
-    url("/fonts/panton-light.WOFF") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-html {
-  padding: 0;
-  margin: auto 0;
-  max-width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
+html,
 body {
-  margin: auto 0;
   padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: map-get($colors, primary);
+}
 
-  .header-flex {
-    display: flex;
-    align-items: center;
-    height: 0;
+/*******************
+Header(nav,logo,links,etc)
+*/
+
+.header-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  padding: 1rem;
+
+  @include for-big-desktop-up{
     padding: 2rem;
-    margin: auto 0;
   }
-
   .logo {
-    flex-grow: 1;
-  }
-
-  .logo img {
-    height: 40px;
-
-    width: 50px;
+    padding: 0;
+    margin: 0;
+    img {
+      width: 45px;
+      height: 40px;
+    }
   }
 
   .ham {
@@ -79,10 +87,6 @@ body {
     transition: 0.3s;
   }
 
-  .menu {
-    display: none;
-  }
-
   .one {
     width: 50px;
   }
@@ -98,27 +102,76 @@ body {
     width: 50px;
   }
 
-  .menu li {
-    padding: 10px;
-    list-style-type: none;
-    font-family: panton;
-    font-size: 12px;
-  }
-  .nav-container {
-    background-color: rgba(83, 167, 234, 0.9);
+  .menu {
+    visibility: hidden;
     width: 100%;
-    height: 0;
-    z-index: 5;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    transition: all 0.5s;
-    overflow-y: hidden;
-    padding: 0;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    li {
+      padding: 5px;
+      list-style-type: none;
+      display: inline-block;
+      font-size: 12px;
+    }
+    li a {
+      color: map-get($colors, secondary);
+      text-decoration: none;
+      font-family: "Playfair Display";
+      text-align: center;
+      width: 100vh;
+    }
+
+    /*****************
+    MENU LINK Animations
+    */
+
+    .link-1::after,
+    .link-2::after,
+    .link-3::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: map-get($colors, extra);
+      transition: width 0.3s;
+    }
+
+    .link-1:hover::after {
+      transition: width 0.3s;
+      width: 100%;
+    }
+
+    .link-2:hover::after {
+      transition: width 0.3s;
+      width: 100%;
+    }
+
+    .link-3:hover::after {
+      transition: width 0.3s;
+      width: 100%;
+    }
   }
+}
+
+/*************************
+NAV OVERLAY 
+*/
+
+.nav-container {
+  background-color: rgba(247,238,218,.9);
+  width: 100%;
+  height: 0;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.5s;
+  overflow-y: hidden;
+  padding: 0;
+  overflow-x: hidden;
+
   .nav {
     width: 100%;
     display: flex;
@@ -134,896 +187,69 @@ body {
     list-style-type: none;
     padding: 10px 0;
     font-size: 30px;
-    
+   
   }
 
   .nav li a {
-    color: #fff;
+    color: map-get($colors, secondary);
     text-decoration: none;
-    font-family: panton;
+    font-family: "raleway";
   }
 
   .nav li a:hover {
-    color: map-get($colors, offblack);
+    color: map-get($colors, primary);
   }
 
-  .menu li a {
-    color: black;
-    text-decoration: none;
-
-    text-align: center;
-    width: 100vh;
-  }
-
-  .nav-container .closeBtn {
+  .closeBtn {
     position: absolute;
     top: 20px;
     right: 50px;
     font-size: 40px;
-    color: white;
+    color: map-get($colors, primary);
     text-decoration: none;
-
     width: 5%;
   }
-  /*****************
-  MENU LINK Animations
-  */
+}
 
-  .link-1::after,
-  .link-2::after,
-  .link-3::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background: map-get($colors, secondaryblue);
-    transition: width 0.3s;
+
+
+/**************
+
+Main content
+
+*******/
+
+main{
+ padding: 1rem;
+  height: 70vh;
+
+  h1{
+    font-family: "Playfair Display";
+    text-align: left;
+    color: map-get($colors, extra);
+    letter-spacing: 2px;
+    font-size: 3rem;
   }
-
-  .link-1:hover::after,
-  .link-2:hover::after,
-  .link-3:hover::after {
-    transition: width 0.3s;
-    width: 100%;
-  }
-
-  /*** 
-TITLE SCSS AND ARROW DOWN ICON 
-****/
-
-  .left {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .title {
-    font-family: panton;
-    text-align: center;
-    font-size: 48px;
-    line-height: 140%;
-    color: map-get($colors, blue);
-    width: 100%;
-  }
-
-  .a-down {
-    animation: a-down 5s infinite linear;
-    position: relative;
-    font-size: 1.5rem;
-  }
-
-  @keyframes a-down {
-    0% {
-      top: (0em);
-    }
-
-    40% {
-      top: (0em);
-    }
-
-    43% {
-      top: (-0.9em);
-    }
-
-    46% {
-      top: (0em);
-    }
-
-    48% {
-      top: (-0.4em);
-    }
-
-    50% {
-      top: (0em);
-    }
-
-    100% {
-      top: (0em);
-    }
-  }
-
-  /***** 
-PROJECT LITS 
-****/
-
-  .project {
-    padding: 1.5rem;
-  }
-
-  .p3 {
-    padding-bottom: 5rem;
-  }
-
-  .p-header {
-    position: relative;
+  img{
     max-width: 100%;
-  }
-
-  .overlay {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-   /* background-image: linear-gradient(
-      to bottom,
-      rgba(255, 0, 0, 0),
-      rgba(30, 33, 37, 1)
-    );
-
-    */
-    width: 100%;
-    height: 100%;
-    transition: 0.5s ease;
-    text-align: center;
-  }
-
-  .p-header > img {
-    max-width: 100%;
-  }
-
-  .projName {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: panton;
-    font-weight: bold;
-    color: map-get($colors, orange);
-    font-size: 36px;
-    width: 100%;
-  }
-
-  .projDes {
-    background-color: map-get($colors, offblack);
-    width: 100%;
-    color: white;
-    font-family: panton;
-    width: 100%;
-    font-size: 12px;
-    
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .project > .content {
-    padding: 1rem;
-
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .content > .buttonstyle {
-    padding: 1rem 2rem 1rem 2rem;
-    border-radius: 5%;
-    transition: all 0.3s ease;
-    background-color: map-get($colors, secondaryblue);
-    box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.1);
-  }
-
-  .buttonstyle:hover {
-    box-shadow: none;
-  }
-
-  .button {
-    font-family: panton;
-    color: #fff;
-    font-size: 12px;
-    text-decoration: none;
-    
-  }
-
-  .arrow {
-    color: #fff;
-  }
-
-  .github {
-    color: map-get($colors, blue);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .github:hover {
-    color: map-get($colors, offblack);
-  }
-
-  footer {
-    height: 0;
-    padding: 2rem;
-    font-family: panton;
-    display: flex;
-    .pgnum {
-      font-family: panton;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    .pgnum > span {
-      color: map-get($colors, blue);
-    }
-  }
-
-  footer > a {
-    color: black;
-    flex-grow: 1;
-    font-family: panton;
-  }
-
-  footer > a:hover {
-    color: map-get($colors, secondaryblue);
-  }
-}
-
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-  body {
-    overflow-x: hidden;
-    .menu {
-      display: flex;
-      width: 100%;
-    }
-
-    .header-flex {
-      height: 5vh;
-      padding: 1rem;
-    }
-
-    .title {
-      font-size: 64px;
-    }
-
-    .p-header {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .p-header > img {
-      max-width: 80%;
-    }
-
-    .overlay {
-      width: 80%;
-      left: 10%;
-    }
-
-    .project {
-      padding: 2rem;
-    }
-    .project > .content {
-      padding: 2rem;
-    }
-
-    .projName {
-      
-      position: absolute;
-     top: 70%;
-    }
-
-    .projDes {
-      
-    
-      top: 95%;
-    }
-  }
-}
-
-@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) and (-webkit-min-device-pixel-ratio: 1) {
-  body {
-    overflow-x: hidden;
-    .header-flex{
-      height: 5vh;
-      padding: 2rem;
-    }
-    .menu {
-      display: flex;
-      width: 100%;
-    }
-
-    .a-down {
-      animation: a-down 5s infinite linear;
-      position: relative;
-      font-size: 2rem;
-    }
-
-    @keyframes a-down {
-      0% {
-        top: (-2em);
-      }
-
-      40% {
-        top: (-2em);
-      }
-
-      43% {
-        top: (-1.1em);
-      }
-
-      46% {
-        top: (-2em);
-      }
-
-      48% {
-        top: (-0.6em);
-      }
-
-      50% {
-        top: (-2em);
-      }
-
-      100% {
-        top: (-2em);
-      }
-    }
-
-    .p-header {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .p-header > img {
-      max-width: 80%;
-    }
-
-    .overlay {
-      width: 80%;
-      left: 10%;
-    }
-    .title {
-      font-size: 100px;
-      line-height: 140%;
-    }
-
-    .projName {
-      font-size: 48px;
-      position: absolute;
-     top: 70%;
-    }
-
-    .projDes {
-      font-size: 16px;
-    }
-    .project {
-      padding: 2rem;
-    }
-    .project > .content {
-      padding: 2rem;
-      padding-left: 5rem;
-      padding-right: 5rem;
-    }
-
-    .a-down {
-      position: relative;
-      bottom: 4rem;
-    }
-
-    footer {
-      height: 0;
-    }
-  }
-}
-
-@media screen and(min-device-width: 1440px) and (max-device-width: 1600px) {
-  body {
-    overflow-x: hidden;
-
    
-
-    .menu {
-      display: flex;
-
-      width: 100%;
-    }
-
-    .menu li {
-      font-size: 16px;
-    }
-
-    .ham {
-      width: 35px;
-    }
-
-    .logo img {
-      width: 60px;
-      height: 50px;
-    }
-
-    .a-down {
-      animation: a-down 5s infinite linear;
-      position: relative;
-      font-size: 2rem;
-    }
-
-    @keyframes a-down {
-      0% {
-        top: (-2em);
-      }
-
-      40% {
-        top: (-2em);
-      }
-
-      43% {
-        top: (-1.1em);
-      }
-
-      46% {
-        top: (-2em);
-      }
-
-      48% {
-        top: (-0.6em);
-      }
-
-      50% {
-        top: (-2em);
-      }
-
-      100% {
-        top: (-2em);
-      }
-    }
-/*  GRID FOR PROJECTS
-    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-      justify-content: center;
-      align-content: center;
-      padding: 1rem;
-    }
-
-    */
-
-    .p-header > img {
-      max-width: 60%;
-    }
-
-    .overlay{
-      width: 60%;
-      left: 20%;
-    }
-    .project > .content {
-      padding: 2rem;
-    }
-
-    .projName {
-      font-size: 48px;
-      position: absolute;
-     top: 65%;
-    }
-
-    .projDes {
-      font-size: 16px;
-      top: 95%;
-    }
-
-    footer {
-      height: 0vh;
-      font-size: 24px;
-      padding-bottom: 3rem;
-      padding-right: 5rem;
-      display: flex;
-      justify-content: flex-end;
-
-      .pgnum {
-        font-size: 24px;
-      }
-    }
+ 
   }
+
+  
 }
 
-@media screen and(min-device-width: 1600px) and (max-device-width: 1920px) {
-  body {
-    overflow-x: hidden;
-
-    
-
-    .menu {
-      display: flex;
-
-      width: 100%;
-    }
-
-    .menu li {
-      font-size: 16px;
-    }
-
-    .logo img {
-      width: 60px;
-      height: 50px;
-    }
-    .ham {
-      width: 35px;
-    }
-
-    .title {
-      font-size: 100px;
-      line-height: 140%;
-    }
-
-    .a-down {
-      animation: a-down 5s infinite linear;
-      position: relative;
-      font-size: 2rem;
-    }
-
-    @keyframes a-down {
-      0% {
-        top: (-2em);
-      }
-
-      40% {
-        top: (-2em);
-      }
-
-      43% {
-        top: (-1.1em);
-      }
-
-      46% {
-        top: (-2em);
-      }
-
-      48% {
-        top: (-0.6em);
-      }
-
-      50% {
-        top: (-2em);
-      }
-
-      100% {
-        top: (-2em);
-      }
-    }
-/*
-    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-      justify-content: center;
-      align-content: center;
-      padding: 1rem;
-    }
-*/
-
-.project{
+footer{
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
   align-items: center;
-}
-
-.content{
-  display: flex; 
-  justify-content: space-evenly;
-  width: 60%;
-}
-
-.p-header{
-  display: flex;
-  justify-content: center;
-}
-    .p-header > img {
-      max-width: 60%;
-      align-self: center;
-    
-    }
-
-    .overlay{
-      width: 60%;
-      left: 20%;
-    }
-    
-
-    .projName {
-      font-size: 64px;
-      position: absolute;
-     top: 55%;
-    }
-
-    .projDes {
-      font-size: 16px;
-      top: 95%;
-    }
-
-    footer {
-      height: 0vh;
-      font-size: 24px;
-      padding-bottom: 3rem;
-      padding-right: 5rem;
-      display: flex;
-      justify-content: flex-end;
-
-      .pgnum {
-        font-size: 24px;
-      }
-    }
+  font-family: 'raleway';
+  font-size: 12px;
+  color: map-get($colors, extra);
+ 
+  @include for-big-desktop-up{
+    padding: 2rem;
   }
-}
-
-@media screen and(min-device-width: 1920px) and (max-device-width: 2560px) {
-  body {
-    overflow-x: hidden;
-
-    .header-flex {
-     
-      padding: 3rem;
-    }
-
-    .menu {
-      display: flex;
-      width: 100%;
-      
-    }
-
-    .menu li {
-      font-size: 16px;
-    }
-    .logo img {
-      width: 70px;
-      height: 60px;
-    }
-
-    .ham {
-      width: 35px;
-    }
-
-    .title {
-      font-size: 140px;
-     
-    }
-
-    .a-down {
-      animation: a-down 5s infinite linear;
-      position: relative;
-      font-size: 2rem;
-    }
-
-    @keyframes a-down {
-      0% {
-        top: (-2em);
-      }
-
-      40% {
-        top: (-2em);
-      }
-
-      43% {
-        top: (-1.1em);
-      }
-
-      46% {
-        top: (-2em);
-      }
-
-      48% {
-        top: (-0.6em);
-      }
-
-      50% {
-        top: (-2em);
-      }
-
-      100% {
-        top: (-2em);
-      }
-    }
-
-    /*
-    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
-      justify-content: center;
-      align-content: center;
-      padding: 2rem;
-    }
-
-    */
-
-    .project{
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .content{
-      display: flex; 
-      justify-content: space-evenly;
-      
-      width: 60%;
-    }
-    
-    .p-header{
-      display: flex;
-      justify-content: center;
-    }
-        .p-header > img {
-          max-width: 80%;
-          align-self: center;
-        
-        }
-    
-        .overlay{
-          width: 80%;
-          left: 10%;
-        }
-
-    .projName {
-      font-size: 64px;
-     position: absolute;
-     top: 60%;
-    }
-
-    .projDes {
-      font-size: 18px;
-    }
-
-    footer {
-      height: 0vh;
-      font-size: 24px;
-      padding-bottom: 3rem;
-      padding-right: 5rem;
-      display: flex;
-      justify-content: flex-end;
-      padding-left: 5rem;
-
-      .pgnum {
-        font-size: 24px;
-      }
-    }
-  }
-}
-
-@media screen and(min-device-width: 2560px) and (max-device-width: 3840px) {
-  body {
-    overflow-x: hidden;
-
-    .header-flex {
-      padding: 4rem;
-
-     
-    }
-
-    .menu {
-      display: flex;
-      width: 100%;
-    }
-
-    .menu li {
-      font-size: 24px;
-    }
-
-    .logo img {
-      width: 70px;
-      height: 60px;
-    }
-    .ham {
-      width: 35px;
-    }
-
-    .title {
-      font-size: 170px;
-      line-height: 140%;
-    }
-
-    .a-down {
-      animation: a-down 5s infinite linear;
-      position: relative;
-      font-size: 4rem;
-    }
-
-    @keyframes a-down {
-      0% {
-        top: (-2em);
-      }
-
-      40% {
-        top: (-2em);
-      }
-
-      43% {
-        top: (-1.1em);
-      }
-
-      46% {
-        top: (-2em);
-      }
-
-      48% {
-        top: (-0.6em);
-      }
-
-      50% {
-        top: (-2em);
-      }
-
-      100% {
-        top: (-2em);
-      }
-    }
-/*
-    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
-      justify-content: center;
-      align-content: center;
-      grid-gap: 2rem;
-    }
-
-    */
-
-    .project{
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .content{
-      display: flex; 
-      justify-content: space-evenly;
-      
-      width: 60%;
-    }
-
-    .projDes{
-      top: 95%;
-    }
-    
-    .p-header{
-      display: flex;
-      justify-content: center;
-    }
-        .p-header > img {
-          max-width: 80%;
-          align-self: center;
-        
-        }
-    
-        .overlay{
-          width: 80%;
-          left: 10%;
-        }
-
-    footer {
-      height: 0vh;
-      font-size: 24px;
-      padding-bottom: 3rem;
-      padding-right: 5rem;
-      display: flex;
-      justify-content: flex-end;
-      padding-left: 5rem;
-
-      .pgnum {
-        font-size: 24px;
-      }
-
-     
-    }
-  }
+  
 }

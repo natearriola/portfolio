@@ -273,10 +273,11 @@ main{
 
 
 .img-container{
-  
+ margin-left: auto;
+ margin-right: auto;
   text-align: center;
-
-position: relative;
+  position: relative;
+  max-width: 1280px;
 
 .overlay{
   position: absolute;
@@ -286,6 +287,8 @@ position: relative;
   right: 0;
   z-index: 2;
   background-color: rgba(29,29,29,.5);
+  
+ 
   
 }
 
@@ -318,6 +321,7 @@ position: relative;
 
 img{
   max-width: 100%;
+ 
 
  
 }

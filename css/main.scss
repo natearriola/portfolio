@@ -2,7 +2,8 @@ $colors: (
   primary: #a09383,
   secondary: #252625,
   accent: #8497a1,
-  extra: #f8edda
+  extra: #f8edda,
+  smtext: #888786
 );
 
 /******************** 
@@ -45,7 +46,7 @@ body {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: map-get($colors, primary);
+  background: map-get($colors, extra);
 }
 
 /*******************
@@ -53,105 +54,70 @@ Header(nav,logo,links,etc)
 */
 
 .header-flex {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  
-  padding: 1rem;
+  top: 0;
+  position: fixed;
+  overflow: hidden;
+ height: 60px;
+ width: 100%;
+ box-shadow: 0 8px 6px -6px rgb(70, 70, 70,);
+z-index: 2;
+ 
+ background-color: map-get($colors, primary);
 
-  @include for-big-desktop-up{
-    padding: 2rem;
-  }
+
+
+
+.head-container{
+padding: .5rem 1rem .5rem 1rem;
+  display: flex;
+  align-items: center;
   .logo {
-    padding: 0;
-    margin: 0;
+    flex-grow: 1;
+    align-self: center;
     img {
-      width: 45px;
-      height: 40px;
+     width: 50px;
+     height: 40px;
     }
   }
 
+  .ham-menu{
+    display: flex;
+    align-self: center;
+    
+  }
+
   .ham {
+    display: block;
     width: 35px;
     height: 30px;
-    display: block;
     cursor: pointer;
     transform: scaleX(-1);
+   
   }
 
   .ham div {
-    height: 4px;
+    height: 3px;
     background: black;
-    margin: 5px 0;
-    border-radius: 24px;
+
+    margin: 3px 0;
+    border-radius: 5px;
     transition: 0.3s;
   }
 
   .one {
-    width: 50px;
+    width: 40px;
   }
 
   .two {
-    width: 30px;
+    width: 25px;
   }
 
   .three {
-    width: 40px;
+    width: 15px;
   }
   .ham:hover div {
-    width: 50px;
+    width: 40px;
   }
-
-  .menu {
-    visibility: hidden;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    li {
-      padding: 5px;
-      list-style-type: none;
-      display: inline-block;
-      font-size: 12px;
-    }
-    li a {
-      color: map-get($colors, secondary);
-      text-decoration: none;
-      font-family: "Playfair Display";
-      text-align: center;
-      width: 100vh;
-    }
-
-    /*****************
-    MENU LINK Animations
-    */
-
-    .link-1::after,
-    .link-2::after,
-    .link-3::after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 2px;
-      background: map-get($colors, extra);
-      transition: width 0.3s;
-    }
-
-    .link-1:hover::after {
-      transition: width 0.3s;
-      width: 100%;
-    }
-
-    .link-2:hover::after {
-      transition: width 0.3s;
-      width: 100%;
-    }
-
-    .link-3:hover::after {
-      transition: width 0.3s;
-      width: 100%;
-    }
-  }
-}
 
 /*************************
 NAV OVERLAY 
@@ -213,43 +179,135 @@ NAV OVERLAY
 
 
 
+}
+
+
+  
+}
+
+
+
 /**************
 
 Main content
 
 *******/
 
-main{
- padding: 1rem;
-  height: 70vh;
 
-  h1{
-    font-family: "Playfair Display";
-    text-align: left;
-    color: map-get($colors, extra);
-    letter-spacing: 2px;
-    font-size: 3rem;
+
+main{
+  min-height: 100vh;
+  padding-top: 60px;
+
+  p{
+    font-size: 12px;
+    font-family: 'raleway';
+    text-align: center;
   }
+
+  /************
+  SECTION BASIC STYLING
+  ***********/
+
+  section{
+    
+    padding: 1.5rem;
+    
+  
+    h1{
+      font-size: 24px;
+      line-height: 50%;
+      font-family: 'Playfair Display';
+      color: map-get($colors, secondary);
+    }
+
+    .s1-head{
+      text-align: center;
+    }
+    
+    .sub{
+      color: #CD640D;
+      font-size: 12px;
+      font-family: 'Playfair Display';
+    }
+        p{
+          text-align: left;
+          line-height: 200%;
+          font-size: 12px;
+        }
+    
+        .content{
+          color: #696969;
+        
+        }
+  }
+
+ 
+
+
+
+
+.img-container{
+  padding: 30px;
+  
+height: auto;
+position: relative;
+.info{
+  color: map-get($colors,secondary);
+  
+  
+}
+.tech{
+  color:map-get($colors, smtext);
+  font-size: 12px;
+}
   img{
     max-width: 100%;
    
+   
+  }
+  h1{
+    font-family: 'Playfair Display';
+    position: absolute;
+    z-index: 1;
+    top: 30%;
+    transform: translateY(-30);
+    left: 0%;
+    color: #8bc3d8;
+    font-size: 48px;
+    background-color: map-get($colors,extra);
+    box-sizing: content-box;
+    padding: 10px;
+  }
+  
+}
  
+  
+
+  .img-grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    .grid-box{
+      img{
+        max-width: 100%;
+
+      }
+
+      .small{
+        max-width: 100%;
+      }
+    }
+
   }
 
-  
 }
 
 footer{
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem;
-  align-items: center;
-  font-family: 'raleway';
-  font-size: 12px;
-  color: map-get($colors, extra);
- 
-  @include for-big-desktop-up{
-    padding: 2rem;
-  }
   
+  padding:3rem;
+  
+  height: 25px;
+
 }

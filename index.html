@@ -24,69 +24,93 @@
   </head>
   <body>
     <!--NAV BAR -->
-    <div class="header-flex" id="top">
-      <div class="logo">
-        <img src="images/Asset 3.png" alt="logo" width="50px" height="40px" />
-      </div>
-      <ul class="menu" id="menu">
-        <li class="link-1">
-          <a href="https://natearriola.github.io/">Home</a>
-        </li>
-        <li class="link-2">
-          <a href=" https://natearriola.github.io/About/">About</a>
-        </li>
-        <li class="link-3">
-          <a href="https://natearriola.github.io/contact/">Contact</a>
-        </li>
-      </ul>
-
-      <div class="ham-menu">
-        <div class="ham" onclick="onClickMenu()" id="ham">
-          <div class="one"></div>
-          <div class="two"></div>
-          <div class="three"></div>
-        </div>
-      </div>
-    </div>
-
+    
+      <header class="header-flex" id="top">
+        <section class="head-container">
+            <div class="logo">
+                <img src="images/Asset 3.png" alt="logo" />
+              </div>
+        
+              <div class="ham-menu">
+                <div class="ham" onclick="onClickMenu()" id="ham">
+                  <div class="one"></div>
+                  <div class="two"></div>
+                  <div class="three"></div>
+                </div>
+              </div> 
+              
     <div class="nav-container" id="nav">
-      <a href="#" class="closeBtn" onclick="closeNav()">&times;</a>
-      <ul class="nav">
-        <li>
-          <a href="https://natearriola.github.io/">Home</a>
-        </li>
-        <li>
-          <a href=" https://natearriola.github.io/About/.">About</a>
-        </li>
-        <li>
-          <a href="https://natearriola.github.io/portfolio/">Portfolio</a>
-        </li>
-        <li>
-          <a href="https://natearriola.github.io/photography/">Photography</a>
-        </li>
-        <li>
-          <a href="https://natearriola.github.io/contact/">Contact</a>
-        </li>
-      </ul>
-    </div>
+        <a href="#" class="closeBtn" onclick="closeNav()">&times;</a>
+        <ul class="nav">
+          <li>
+            <a href="https://natearriola.github.io/">Home</a>
+          </li>
+          <li>
+            <a href=" https://natearriola.github.io/About/.">About</a>
+          </li>
+          <li>
+            <a href="https://natearriola.github.io/portfolio/">Portfolio</a>
+          </li>
+          <li>
+            <a href="https://natearriola.github.io/photography/">Photography</a>
+          </li>
+          <li>
+            <a href="https://natearriola.github.io/contact/">Contact</a>
+          </li>
+        </ul>
+      </div>
+        </section>
+       
+
+
+      </header>
+    
+
 
  <main>
-<h1 class="title">Work</h1>
-  <div class="project-1">
-    <div class="overlay"></div>
+    <article class="img-container">
+        <p class="info">Passion Project · Design · Front-end </p>
+      <h1>ODIE</h1>
+        <img src="images/odie-cover.jpg" alt="">
+        <p class="tech"> Adobe Creative Cloud · HTML · CSS/SASS</p>
+    </article>
+<section class="purpose">
+  <h1 class="s1-head">Passion Project</h1>
+  <p class="sub">May 2016.</p>
+  <p class="content">
+    In honor of my favorite artist - ODIE. I decided to work on a passion project that is essentially a mini tribute to him. 
+    It's a fully responsive website with content involving a landing, about and sound page. The goal is providing you a snippet of ODIE through a 
+    usable and attractive expereince. Aka give ODIE exposure because he's truly talented and deserving of it. 
+  </p>
+</section>
 
-    <a href="https://natearriola.github.io/odie">
-      <img src="images/p1.jpg" alt="">
-    </a>
-    
+<article class="img-grid">
+  <div class="grid-box">
+    <img src="images/Odie Section one(desktop).png" alt="">
   </div>
+  <div class="grid-box">
+    <img class="small" src="images/Odie 3.png" alt="">
+  </div>
+</article>
+
+<section class="design-goal">
+    <h1>Design Goal</h1>
+    
+    <p class="content">
+      In honor of my favorite artist - ODIE. I took on a passion project that is essentially a mini tribute to him. 
+      It's a fully responsive website with content involving a landing, about and sound page. My goal for this website is 
+      to provide educational infomtion about ODIE through a usable and attractive experience. 
+    </p>
+</section>
+
+<footer>
+    <div class="copy">&copy Nate Arriola </div>
+   
+  </footer>
+
  </main>
 
-    <footer>
-      <div class="copy">&copy Nate Arriola </div>
-     
-    </footer>
-
+   
     <script src="js/main.js"></script>
   </body>
 </html>
